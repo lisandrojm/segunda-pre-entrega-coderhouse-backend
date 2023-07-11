@@ -9,36 +9,39 @@ const HandlebarsServices = require('../handlebarsServices/handlebarsServices');
 class HandlebarsController {
   /* Función para obtener la página de inicio */
   getInicio = async (req, res, next) => {
-    await HandlebarsServices.getInicio(res);
+    return await HandlebarsServices.getInicio(res);
   };
   /* Función para obtener la página home */
   getHome = async (req, res, next) => {
-    await HandlebarsServices.getHome(res);
+    return await HandlebarsServices.getHome(res);
   };
   /* Función para obtener los productos en tiempo real */
   getRealTimeProducts = async (req, res, next) => {
-    await HandlebarsServices.getRealTimeProducts(res);
+    return await HandlebarsServices.getRealTimeProducts(res);
   };
   /* Función para obtener los productos en tiempo real */
   getChat = async (req, res, next) => {
-    await HandlebarsServices.getChat(res);
+    return await HandlebarsServices.getChat(res);
   };
   /* Función para obtener el listado de productos */
   getProducts = async (req, res, next) => {
     const { limit, page, sort, query } = req.query;
-    await HandlebarsServices.getProducts(limit, page, sort, query, res);
+    return await HandlebarsServices.getProducts(limit, page, sort, query, res);
   };
-  /* Función para obtener la página de inicio */
+  /* Función para obtener los carritos  */
   getCartById = async (req, res, next) => {
-    await HandlebarsServices.getCartById(res);
+    return await HandlebarsServices.getCartById(res);
   };
 
   /* Obtener un producto por ID */
   getCartProductById = async (req, res, next) => {
     /* Obtener el ID del carrito de los parámetros de la solicitud */
     const { cid } = req.params;
+    /* Obtener el ID del carrito */
+    const cartId = cid; // Agregar esta línea para obtener el ID del carrito
+
     /* Llamar al método getCartProductById de ProductsServices */
-    await HandlebarsServices.getCartProductById(cid, res);
+    return await HandlebarsServices.getCartProductById(cartId, res);
   };
 }
 

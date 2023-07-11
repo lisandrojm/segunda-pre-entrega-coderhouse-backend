@@ -12,43 +12,47 @@
     <div class='container pt-3 text-center'>
       <div class='d-flex align-items-center justify-content-center'>
         <img class='pe-2' src='/img/cart.svg' alt='cart' />
-        <h1 class='text-center'>Cart</h1>
+        <h1 class='text-center'>Carts backup</h1>
       </div>
+      <h3 class='text-center pb-2 pt-2'>Productos en el carrito</h3>
       <div class='text-center'>
         <p class='font_id'><span class='fw-bold'>Cart ID: </span> <span id='cartId'>{{cartId}}</span></p>
       </div>
-      <h3 class='text-center pb-2 pt-2'>Productos en el carrito</h3>
-
       <div class='table-responsive'>
         <table class='table table-bordered table-striped'>
           <thead>
             <tr>
-              <th>Product ID</th>
+              <th>Carts ID</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each carts}}
+              <tr>
+                <td>{{_id}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+        <table class='table table-bordered table-striped'>
+          <thead>
+            <tr>
+              <th>Object ID</th>
               <th>Quantity</th>
-              <th>Product Title</th>
-              <th>Product Description</th>
-              <th>Product Code</th>
-              <th>Product Price</th>
-              <th>Product Category</th>
+              <th>Products</th>
             </tr>
           </thead>
           <tbody>
             {{#each carts}}
               {{#each this.products}}
                 <tr>
-                  <td>{{this.productId._id}}</td>
+                  <td>{{_id}}</td>
                   <td>{{this.quantity}}</td>
-                  <td>{{this.productId.title}}</td>
-                  <td>{{this.productId.description}}</td>
-                  <td>{{this.productId.code}}</td>
-                  <td>{{this.productId.price}}</td>
-                  <td>{{this.productId.category}}</td>
+                  <td>{{this.productId}}</td>
                 </tr>
               {{/each}}
             {{/each}}
           </tbody>
         </table>
-
       </div>
       <div class='text-center mt-2 mb-4'>
         <a class='btn btn-dark' href='http://localhost:8080/products' role='button'>Ir a Productos</a>

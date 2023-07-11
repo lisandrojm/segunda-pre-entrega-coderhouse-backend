@@ -7,8 +7,7 @@ Servicios de handlebars */
 const { connection } = require('../../../config/mongo');
 /* Importar el servicio de products */
 const ProductsServices = require('../../products/productsServices/productsServices');
-const CartsServices = require('../../carts/cartsServices/cartsServices');
-
+const { Cart } = require('../../../models/carts');
 /* Definir la clase HandlebarsServices */
 class HandlebarsServices {
   /* Función auxiliar para obtener los datos de una colección */
@@ -92,20 +91,39 @@ class HandlebarsServices {
     try {
       /* Obtener los carts de la colección 'carts' y renderizar la vista 'carts' */
       const carts = await this.getCollectionData('carts');
-      return res.render('carts', { success: true, title: 'Carts', carts, style: 'index.css' });
+      return res.render('carts_backup', { success: true, title: 'Carts', carts, style: 'index.css' });
     } catch (error) {
       return res.status(500).json({ success: false, error: 'Error Handlebars' });
     }
   }
+
   async getCartProductById(cid, res) {
     try {
-      /* Obtener los productos del carrito por su ID */
-      const cartProducts = await CartsServices.getCartAllProductsById(cid, res);
+      /* Obtener el carrito por su ID y hacer populate en 'products.productId' */
+      const cart = await Cart.findById(cid).populate('products.productId', '-__v');
+
+      /* Formatear el carrito para incluir solo las propiedades necesarias */
+      const formattedCart = {
+        _id: cart._id,
+        products: cart.products.map((item) => ({
+          productId: {
+            _id: item.productId._id,
+            title: item.productId.title,
+            description: item.productId.description,
+            code: item.productId.code,
+            price: item.productId.price,
+            stock: item.productId.stock,
+            category: item.productId.category,
+          },
+          quantity: item.quantity,
+        })),
+      };
 
       const context = {
         success: true,
         title: 'Carts',
-        carts: cartProducts,
+        carts: [formattedCart], // Pasar el carrito formateado como un arreglo para mantener la estructura del contexto
+        cartId: cid, // Agregar esta línea para pasar el ID del carrito al contexto
         style: 'index.css',
       };
 

@@ -12,7 +12,7 @@ class ProductsController {
     /* Obtener el límite de productos de los parámetros de consulta */
     const { limit, page, sort, query } = req.query;
     /* Llamar al método getAllProducts de ProductsServices */
-    await ProductsServices.getAllProducts(limit, page, sort, query, res);
+    return await ProductsServices.getAllProducts(limit, page, sort, query, res);
   };
 
   /* Agregar un nuevo producto */
@@ -22,7 +22,7 @@ class ProductsController {
     /* Obtener las imágenes de los archivos adjuntos */
     const images = req.files;
     /* Llamar al método addProduct de ProductsServices */
-    await ProductsServices.addProduct(payload, images, res, req);
+    return await ProductsServices.addProduct(payload, images, res, req);
   };
 
   /* Obtener un producto por ID */
@@ -30,7 +30,7 @@ class ProductsController {
     /* Obtener el ID del producto de los parámetros de la solicitud */
     const { pid } = req.params;
     /* Llamar al método getProductById de ProductsServices */
-    await ProductsServices.getProductById(pid, res);
+    return await ProductsServices.getProductById(pid, res);
   };
 
   /* Actualizar un producto */
@@ -40,7 +40,7 @@ class ProductsController {
     /* Obtener los campos de actualización de la solicitud */
     const updateFields = req.body;
     /* Llamar al método updateProduct de ProductsServices */
-    await ProductsServices.updateProduct(pid, updateFields, res, req);
+    return await ProductsServices.updateProduct(pid, updateFields, res, req);
   };
 
   /* Eliminar un producto */
@@ -48,13 +48,13 @@ class ProductsController {
     /* Obtener el ID del producto de los parámetros de la solicitud */
     const { pid } = req.params;
     /* Llamar al método deleteProduct de ProductsServices */
-    await ProductsServices.deleteProduct(pid, res, req);
+    return await ProductsServices.deleteProduct(pid, res, req);
   };
   getProducts = async (req, res, next) => {
     /* Obtener el límite de productos de los parámetros de consulta */
     const { limit, page, sort, query } = req.query;
     /* Llamar al método getAllProducts de ProductsServices */
-    await ProductsServices.getProducts(limit, page, sort, query, res);
+    return await ProductsServices.getProducts(limit, page, sort, query, res);
   };
 }
 

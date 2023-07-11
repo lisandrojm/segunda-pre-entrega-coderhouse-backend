@@ -9,33 +9,33 @@ const cartsService = require('../cartsServices/cartsServices');
 class CartsController {
   /* Agregar un carrito */
   addCart = async (req, res, next) => {
-    await cartsService.addCart(res);
+    return await cartsService.addCart(res);
   };
 
   /* Obtener los productos de un carrito por su ID */
   getCartProductById = async (req, res, next) => {
     const { cid } = req.params;
-    await cartsService.getCartProductById(cid, res);
+    return await cartsService.getCartProductById(cid, res);
   };
 
   /* Agregar un producto a un carrito */
   addProductToCart = async (req, res, next) => {
     const { cid, pid } = req.params;
     const { quantity } = req.body;
-    await cartsService.addProductToCart(cid, pid, quantity, res);
+    return await cartsService.addProductToCart(cid, pid, quantity, res);
   };
 
   /* Eliminar un carrito */
   deleteCart = async (req, res, next) => {
     const { cid } = req.params;
-    await cartsService.deleteCart(cid, res);
+    return await cartsService.deleteCart(cid, res);
   };
   ///////////////////////////////////////////////////////////////////////////
   /* Nuevos métodos */
   /* Eliminar un producto del carrito */
   deleteProductFromCart = async (req, res, next) => {
     const { cid, pid } = req.params;
-    await cartsService.deleteProductFromCart(cid, pid, res);
+    return await cartsService.deleteProductFromCart(cid, pid, res);
   };
 
   /* Actualizar el carrito con un arreglo de productos */
