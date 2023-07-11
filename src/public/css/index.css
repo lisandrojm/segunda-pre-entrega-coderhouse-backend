@@ -1,0 +1,24 @@
+/* ************************************************************************** */
+/* /src/public/css/index.css - .css de /src/views/layouts/main.handlebars
+ - Aplica a todas las plantillas de handlebars
+/* ************************************************************************** */
+
+body {
+  background-color: rgb(228, 228, 228);
+}
+/* /src/views/products.handlebars  */
+.product-card {
+  margin-bottom: 20px;
+}
+.font_id {
+  font-size: 0.8rem;
+}
+/* /src/views/carts.handlebars */
+.cart {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+/* /src/views/inicio.handlebars  */
+.inicio {
+  height: 80vh;
+}
