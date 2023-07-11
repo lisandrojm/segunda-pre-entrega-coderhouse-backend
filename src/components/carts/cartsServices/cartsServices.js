@@ -185,6 +185,35 @@ class CartsService {
       return res.status(500).json({ success: false, error: 'Error al eliminar todos los productos del carrito' });
     }
   };
+  /* Obtener los productos de un carrito por su ID / */
+  /* Obtener todos los productos de un carrito por su ID */
+  getCartAllProductsById = async (cid, res) => {
+    try {
+      const cart = await Cart.findById(cid).populate('products.productId');
+      if (!cart) {
+        return res.status(404).json({ success: false, error: 'Carrito no encontrado' });
+      }
+
+      const formattedProducts = cart.products.map((product) => {
+        return {
+          _id: product.productId._id,
+          title: product.productId.title,
+          description: product.productId.description,
+          code: product.productId.code,
+          price: product.productId.price,
+          stock: product.productId.stock,
+          category: product.productId.category,
+          quantity: product.quantity,
+        };
+      });
+
+      const data = formattedProducts;
+      console.log(data);
+      return res.status(200).json({ success: true, payload: data });
+    } catch (error) {
+      return res.status(500).json({ success: false, error: 'Error al obtener los productos del carrito' });
+    }
+  };
 }
 
 /* Exportar una instancia de la clase 'CartsService' */
