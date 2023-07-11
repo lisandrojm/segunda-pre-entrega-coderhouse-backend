@@ -87,16 +87,6 @@ class HandlebarsServices {
     }
   }
 
-  async getCartById(res) {
-    try {
-      /* Obtener los carts de la colección 'carts' y renderizar la vista 'carts' */
-      const carts = await this.getCollectionData('carts');
-      return res.render('carts_backup', { success: true, title: 'Carts', carts, style: 'index.css' });
-    } catch (error) {
-      return res.status(500).json({ success: false, error: 'Error Handlebars' });
-    }
-  }
-
   async getCartProductById(cid, res) {
     try {
       /* Obtener el carrito por su ID y hacer populate en 'products.productId' */

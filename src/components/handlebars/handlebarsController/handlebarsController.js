@@ -28,11 +28,6 @@ class HandlebarsController {
     const { limit, page, sort, query } = req.query;
     return await HandlebarsServices.getProducts(limit, page, sort, query, res);
   };
-  /* Función para obtener los carritos  */
-  getCartById = async (req, res, next) => {
-    return await HandlebarsServices.getCartById(res);
-  };
-
   /* Obtener un producto por ID */
   getCartProductById = async (req, res, next) => {
     /* Obtener el ID del carrito de los parámetros de la solicitud */

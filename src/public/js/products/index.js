@@ -1,5 +1,5 @@
 /* ************************************************************************** */
-/* /src/public/js/chat/index.js - .js de /src/views/products.handlebars */
+/* /src/public/js/products/index.js - .js de /src/views/products.handlebars */
 /* ************************************************************************** */
 
 console.log('js running');
@@ -160,3 +160,9 @@ window.addEventListener('DOMContentLoaded', async () => {
     swal('Error al crear el carrito', '', 'error');
   }
 });
+
+// Redirigir a la url del carrito con la variable del cartId http://localhost:8080/carts/${cartId}
+function redirectToCart() {
+  const cartId = document.getElementById('cartId').textContent;
+  window.location.href = `http://localhost:8080/carts/${cartId}`;
+}
