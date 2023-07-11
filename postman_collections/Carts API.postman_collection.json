@@ -8,7 +8,7 @@
 	},
 	"item": [
 		{
-			"name": "Add New Cart",
+			"name": "addCart",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -32,7 +32,7 @@
 			"response": []
 		},
 		{
-			"name": "Get Cart by ID",
+			"name": "getCartProductById",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -59,7 +59,7 @@
 			"response": []
 		},
 		{
-			"name": "Add New Product to Cart",
+			"name": "addProductToCart",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -96,7 +96,7 @@
 			"response": []
 		},
 		{
-			"name": "Delete Product",
+			"name": "deleteProductToCart",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -129,7 +129,7 @@
 			"response": []
 		},
 		{
-			"name": "Delete Cart",
+			"name": "deleteCart",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -161,6 +161,72 @@
 						}
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletePruductFromCart",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "updateCart",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "updateProductQuantity",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"quantity\": 5\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/carts/:cid/product/:pid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carts",
+						":cid",
+						"product",
+						":pid"
+					],
+					"variable": [
+						{
+							"key": "cid",
+							"value": "64a407af6216a4ce153f6422"
+						},
+						{
+							"key": "pid",
+							"value": "64a6a23e2fa68202c17ab65f"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteAllProductsFromCart",
+			"request": {
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		}
