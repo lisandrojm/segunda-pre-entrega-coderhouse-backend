@@ -7,7 +7,7 @@ cartsController.js. */
 const { Router } = require('express');
 
 /* Importar el controlador de carrito */
-const carritoController = require('./cartsController/cartsController');
+const cartsController = require('./cartsController/cartsController');
 
 module.exports = (app) => {
   /* Crear una nueva instancia del enrutador de Express */
@@ -18,21 +18,21 @@ module.exports = (app) => {
 
   /* Definir las rutas y asignar los controladores correspondientes */
   /* Agregar un carrito nuevo */
-  router.post('/', carritoController.addCart);
+  router.post('/', cartsController.addCart);
   /* Obtener los productos de un carrito por su ID */
-  router.get('/:cid', carritoController.getCartProductById);
+  router.get('/:cid', cartsController.getCartProductById);
   /* Agregar un producto a un carrito */
-  router.post('/:cid/product/:pid', carritoController.addProductToCart);
+  router.post('/:cid/product/:pid', cartsController.addProductToCart);
   /* Eliminar un carrito */
-  router.delete('/:cid', carritoController.deleteCart);
+  router.delete('/:cid', cartsController.deleteCart);
   ///////////////////////////////////////////////////////////////////////////
   /* Nuevos endpoints */
   /* Eliminar un producto del carrito */
-  router.delete('/:cid/product/:pid', carritoController.deleteProductFromCart);
+  router.delete('/:cid/product/:pid', cartsController.deleteProductFromCart);
   /* Actualizar el carrito con un arreglo de productos */
-  router.put('/:cid', carritoController.updateCart);
+  router.put('/:cid', cartsController.updateCart);
   /* Actualizar la cantidad de ejemplares de un producto en el carrito */
-  router.put('/:cid/product/:pid', carritoController.updateProductQuantity);
+  router.put('/:cid/product/:pid', cartsController.updateProductQuantity);
   /* Eliminar todos los productos del carrito */
-  router.delete('/:cid/products', carritoController.deleteAllProductsFromCart);
+  router.delete('/:cid/products', cartsController.deleteAllProductsFromCart);
 };
