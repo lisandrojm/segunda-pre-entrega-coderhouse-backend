@@ -24,12 +24,12 @@
           <thead>
             <tr>
               <th>Product ID</th>
-              <th>Quantity</th>
-              <th>Product Title</th>
-              <th>Product Description</th>
-              <th>Product Code</th>
-              <th>Product Price</th>
-              <th>Product Category</th>
+              <th>Título</th>
+              <th>Descripción</th>
+              <th>Código</th>
+              <th>Categoría</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
             </tr>
           </thead>
           <tbody>
@@ -37,18 +37,17 @@
               {{#each this.products}}
                 <tr>
                   <td>{{this.productId._id}}</td>
-                  <td>{{this.quantity}}</td>
                   <td>{{this.productId.title}}</td>
                   <td>{{this.productId.description}}</td>
                   <td>{{this.productId.code}}</td>
-                  <td>{{this.productId.price}}</td>
                   <td>{{this.productId.category}}</td>
+                  <td>{{this.quantity}}</td>
+                  <td>{{this.productId.price}}</td>
                 </tr>
               {{/each}}
             {{/each}}
           </tbody>
         </table>
-
       </div>
       <div class='text-center mt-2 mb-4'>
         <a class='btn btn-dark' href='http://localhost:8080/products' role='button'>Ir a Productos</a>
