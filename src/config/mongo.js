@@ -8,6 +8,9 @@ const mongoose = require('mongoose');
 /* Importar el objeto 'db' del archivo actual './' */
 const { db } = require('./index');
 
+mongoose.set('debug', false); // Modo de depuración activado (solo para desarrollo)
+mongoose.set('strictQuery', false); // Validación estricta de consultas desactivada (tener cuidado)
+
 /* Declarar una variable 'connection' */
 let connection;
 

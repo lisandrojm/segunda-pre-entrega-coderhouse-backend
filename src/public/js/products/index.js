@@ -5,24 +5,16 @@
 console.log('js running');
 
 // Función para obtener el ID del carrito del almacenamiento local
-function getCartId() {
-  return localStorage.getItem('cartId');
-}
+const getCartId = () => localStorage.getItem('cartId');
 
 // Función para guardar el ID del carrito en el almacenamiento local
-function setCartId(cartId) {
-  localStorage.setItem('cartId', cartId);
-}
+const setCartId = (cartId) => localStorage.setItem('cartId', cartId);
 
 // Función para obtener la cantidad de productos del almacenamiento local
-function getProductCount() {
-  return localStorage.getItem('productCount');
-}
+const getProductCount = () => localStorage.getItem('productCount');
 
 // Función para guardar la cantidad de productos en el almacenamiento local
-function setProductCount(count) {
-  localStorage.setItem('productCount', count);
-}
+const setProductCount = (count) => localStorage.setItem('productCount', count);
 
 // Variable para almacenar el ID del carrito actual
 let cartId = getCartId();
@@ -35,7 +27,7 @@ const cartIdElement = document.getElementById('cartId');
 const cartQuantityElement = document.getElementById('cartQuantity');
 
 // Función para actualizar el cartId y el contador de productos en el DOM
-function updateCartId() {
+const updateCartId = () => {
   cartIdElement.textContent = cartId;
   cartQuantityElement.innerHTML = `<div class="d-flex align-items-center justify-content-center">
    <div class="pe-2">
@@ -45,7 +37,7 @@ function updateCartId() {
     <h5 class="fw-bold">${productCount}</h5>
    </div>
   </div>`;
-}
+};
 
 // Obtén todos los botones "Agregar al carrito"
 const addToCartButtons = document.querySelectorAll('.btn-primary');
@@ -162,7 +154,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 });
 
 // Redirigir a la url del carrito con la variable del cartId http://localhost:8080/carts/${cartId}
-function redirectToCart() {
+const redirectToCart = () => {
   const cartId = document.getElementById('cartId').textContent;
   window.location.href = `http://localhost:8080/carts/${cartId}`;
-}
+};
