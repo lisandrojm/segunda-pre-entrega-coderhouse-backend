@@ -23,12 +23,11 @@ class ProductsServices {
 
       /* Configuración del filtro de búsqueda */
       const filter = query
-        ? {
-            $or: [
-              { category: query }, //Búsqueda por categoría
-              { stock: 0 }, // Condición de disponibilidad de stock. Si hay uno o mas productos con stock 0 que lo/s devuelva
-            ],
-          }
+        ? query === '0'
+          ? {
+              $or: [{ category: query }, { stock: 0 }],
+            }
+          : { category: query } // Búsqueda por categoría exacta
         : {};
 
       /* Consulta a la base de datos utilizando el filtro y opciones definidas */
