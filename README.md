@@ -69,7 +69,13 @@ Sigue estos pasos para instalar y configurar el proyecto:
 
 7. Ahora podrás utilizar la vista de chat en la aplicación.
 
-## Video Test
+## Video test Postman
+
+https://github.com/lisandrojm/segunda_pre-entrega/assets/35199683/cdd07ae8-bc88-4961-9b51-f4646b5b0c2d
+
+## Video test Handlebars
+
+https://github.com/lisandrojm/segunda_pre-entrega/assets/35199683/dfa2a27b-9762-4825-a842-f59cd4f32723
 
 ## Estructura del proyecto (directorios relevantes para el desafío)
 
