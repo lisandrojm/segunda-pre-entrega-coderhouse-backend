@@ -32,7 +32,7 @@ const updateCartId = () => {
     <img src="../../img/cart.svg" alt="cart" />
    </div>
    <div>
-    <h5 class="fw-bold">${productCount}</h5>
+    <h5 class="fw-bold mb-2 text-danger">${productCount}</h5>
    </div>
   </div>`;
 };

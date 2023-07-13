@@ -13,6 +13,18 @@ body {
 .font_id {
   font-size: 0.8rem;
 }
+.products_header {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  z-index: 1;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.section {
+  z-index: -1;
+  margin-top: 90px;
+}
 /* /src/views/carts.handlebars */
 .cart {
   font-size: 1.1rem;
