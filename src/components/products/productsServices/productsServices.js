@@ -33,6 +33,16 @@ class ProductsServices {
       /* Consulta a la base de datos utilizando el filtro y opciones definidas */
       const result = await Product.paginate(filter, options);
 
+      /* Validar si la página solicitada es un número válido */
+      if (page && !/^\d+$/.test(page)) {
+        return res.status(400).json({ status: 'error', error: 'El parámetro "page" debe ser un número válido' });
+      }
+
+      /* Verificar si la página existe */
+      if (page && (parseInt(page) < 1 || parseInt(page) > result.totalPages)) {
+        return res.status(400).json({ status: 'error', error: 'El número de página no existe' });
+      }
+
       /* Construcción del objeto de respuesta */
       const data = {
         status: 'success',
