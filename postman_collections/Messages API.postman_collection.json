@@ -45,9 +45,9 @@
 			"response": []
 		},
 		{
-			"name": "Delete User Message",
+			"name": "Delete Use Message",
 			"request": {
-				"method": "GET",
+				"method": "DELETE",
 				"header": []
 			},
 			"response": []
